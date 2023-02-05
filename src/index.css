@@ -9,7 +9,7 @@
   --blue: #010084;
 
 
-  color-scheme: light dark;
+  color-scheme: light;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
@@ -30,7 +30,7 @@ body {
   margin: 0;
   display: flex;
   min-width: 320px;
-  min-height: 860px;
+  min-height: 840px;
 }
 
 h1 {
