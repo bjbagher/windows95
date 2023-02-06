@@ -1,7 +1,11 @@
 import { useContext } from "react"
 import { ActionType, Context } from "../contexts/Context"
 
-function CloseButton({ name }) {
+interface CloseButtonProps {
+  name: string;
+}
+
+function CloseButton({ name } : CloseButtonProps) {
   const { dispatch } = useContext(Context)
 
   const handleClose = () => {

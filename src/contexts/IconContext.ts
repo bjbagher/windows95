@@ -25,7 +25,7 @@ export const iconState = {
   }
 }
 
-export const IconContext = createContext<typeof iconState | null>(null)
+export const IconContext = createContext(null)
 
 export const IconActionType = {
   SELECT

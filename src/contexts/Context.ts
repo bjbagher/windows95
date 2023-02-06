@@ -71,7 +71,7 @@ export const initState = {
   }
 }
 
-export const Context = createContext<typeof initState | null>(null)
+export const Context = createContext(null)
 
 interface Action<T, P> {
   readonly type: T;
