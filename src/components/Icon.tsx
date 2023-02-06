@@ -27,6 +27,10 @@ function Icon({ iconSrc, name, selected }: IconProps) {
           type: IconActionType.SELECT,
           payload: name
         }
+        if (name === "Print") {
+          window.print()
+          return
+        }
         iconDispatch(action)
       }
       setClickCount(clickCount + 1)

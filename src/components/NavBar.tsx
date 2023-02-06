@@ -1,6 +1,7 @@
 import windows_95 from "../assets/windows-95.svg"
 import sound from "../assets/sound.png"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { Context, ActionType } from "../contexts/Context"
 
 function Time() {
   const [time, setTime] = useState(new Date().toLocaleTimeString())
@@ -30,7 +31,17 @@ function Start() {
 }
 
 function Task({ iconSrc, name }) {
-  return (<div className="task">
+  const { dispatch } = useContext(Context)
+
+  const handleSelect = () => {
+    console.log("hello??")
+    const action = {
+      type: ActionType.SELECT,
+      payload: name
+    }
+    dispatch(action)
+  }
+  return (<div className="task" onClick={handleSelect}>
     <img src={iconSrc} />
     <p>{name}</p>
   </div>)

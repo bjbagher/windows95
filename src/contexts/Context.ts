@@ -23,14 +23,14 @@ export const initState = {
   Computer: {
     iconSrc: pc_icon,
     name: "Computer",
-    status: Status.OPEN,
+    status: Status.CLOSE,
     position: { top: '60px', left: '60px' },
     selected: true
   },
   "Recycle Bin": {
     iconSrc: recycle_bin,
     name: "Recycle Bin",
-    status: Status.OPEN,
+    status: Status.CLOSE,
     position: { top: '80px', left: '90px' },
     selected: false
   },
@@ -60,7 +60,7 @@ export const initState = {
     name: "Info",
     status: Status.CLOSE,
     position: { top: '160px', left: '210px' },
-    selected: false
+    selected: true
   },
   Print: {
     iconSrc: print,
@@ -92,6 +92,7 @@ function reducer(state: typeof initState, action: Action<string, string | Payloa
       return { ...state, [action.payload.name]: { ...state[action.payload.name], position: { top: action.payload.top, left: action.payload.left } } }
     case ActionType.SELECT:
       clone = structuredClone(state)
+      console.log('hello', action)
       for (const key in clone) {
         clone[key].selected = false
       }
