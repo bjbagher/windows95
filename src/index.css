@@ -136,16 +136,15 @@ h1 {
   height: 90%;
 }
 
+embed {
+  width: 590px;
+  height: 330px;
+}
 
 @media (max-width: 600px) {
   .window {
     width: 290px;
     left: 5px !important;
-  }
-
-  embed {
-    width: 280px !important;
-    height: 170px !important;
   }
 
   .window-outline {
@@ -155,6 +154,12 @@ h1 {
 
   .window-container {
     height: 87%;
+  }
+
+  embed {
+    width: 285px;
+    height: 175px;
+    zoom: 100%;
   }
 }
 

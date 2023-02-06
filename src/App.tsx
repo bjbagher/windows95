@@ -12,7 +12,7 @@ import Dreams from "./assets/dreams.webp"
 
 
 function Resume() {
-  return (<embed src="ResumeBB.pdf#zoom=FitH" width="590px" height="330px" />)
+  return (<embed src="ResumeBB.pdf#zoom=FitH" />)
 }
 function VideoPlayer() {
   return (
