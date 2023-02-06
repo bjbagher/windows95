@@ -269,3 +269,17 @@ img {
   left: 275px;
   background-color: green;
 }
+
+.trash {
+  padding-top: 10px;
+  padding-left: 10px;
+  display: flex;
+  gap: 50px;
+  place-items: center;
+}
+
+.trash img {
+  width: 100px;
+  heigth: 100px;
+  border: 1px solid black;
+}

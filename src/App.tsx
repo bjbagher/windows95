@@ -5,6 +5,10 @@ import { IconContext } from "./contexts/IconContext"
 import Desktop from "./components/Desktop"
 import Window from "./components/Window"
 import NavBar from "./components/NavBar"
+import Splash from "./assets/splash.webp"
+import Asurion from "./assets/asurion.webp"
+import Hopes from "./assets/hope.webp"
+import Dreams from "./assets/dreams.webp"
 
 
 function Resume() {
@@ -15,6 +19,16 @@ function VideoPlayer() {
     <video controls width="590" autoPlay>
       <source src="rickroll.mp4" type="video/mp4" />
     </video>
+  )
+}
+
+const trash = [Hopes, Dreams, Splash, Asurion]
+
+function Trash() {
+  return (
+    <ul className="trash">
+      {trash.map(item => <li key={item}><div><img src={item} /></div></li>)}
+    </ul>
   )
 }
 
@@ -45,6 +59,15 @@ function App() {
               </Window>
             )
           }
+
+          if (program.name === "Recycle Bin") {
+            return (
+              <Window key={program.name} top={program.position.top} left={program.position.left} iconSrc={program.iconSrc} name={program.name} selected={program.selected} >
+                <Trash />
+              </Window>
+            )
+          }
+
 
           return (<Window key={program.name} top={program.position.top} left={program.position.left} iconSrc={program.iconSrc} name={program.name} selected={program.selected} />)
         })}
