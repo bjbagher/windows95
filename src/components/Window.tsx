@@ -5,8 +5,11 @@ import InfoWindow from "./InfoWindow"
 
 import musicplayer from "../assets/musicplayer.png"
 
+interface MusicPlayerProps {
+  name: string
+}
 
-function MusicPlayer({ name }) {
+function MusicPlayer({ name }: MusicPlayerProps) {
   return (
     <div className="musicplayer">
       <img src={musicplayer} />
@@ -49,12 +52,12 @@ function VideoPlayer({ top, left, iconSrc, name, selected }: WindowProps) {
     }
     dispatch(action)
   }
-  const handleDrop = (e) => {
+  const handleDrop = (e: any) => {
     const action = dropAction(e)
     dispatch(action)
   }
 
-  const handleDrag = (e) => {
+  const handleDrag = (e: any) => {
     if (!listen) return
     setListen(false)
     console.log('drag')

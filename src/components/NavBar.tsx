@@ -30,7 +30,7 @@ function Start() {
   )
 }
 
-function Task({ iconSrc, name }) {
+function Task({ iconSrc, name }: any) {
   const { dispatch } = useContext(Context)
 
   const handleSelect = () => {
