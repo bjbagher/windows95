@@ -16,6 +16,10 @@ function Icon({ iconSrc, name, selected }: IconProps) {
 
   const handleDoubleClick = () => {
     if (clickCount >= 1) {
+      if (name === "Print") {
+        window.print()
+        return
+      }
       const action = {
         type: ActionType.OPEN,
         payload: name
@@ -27,11 +31,8 @@ function Icon({ iconSrc, name, selected }: IconProps) {
           type: IconActionType.SELECT,
           payload: name
         }
-        if (name === "Print") {
-          window.print()
-          return
-        }
         iconDispatch(action)
+
       }
       setClickCount(clickCount + 1)
       const timeout = setTimeout(() => { setClickCount(0) }, 1000)
