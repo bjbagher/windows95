@@ -47,6 +47,7 @@ function App() {
       return false;
     }
   }
+
   const { state } = useContext(Context)
   const { iconStt } = useContext(IconContext)
   for (const key in iconStt) {

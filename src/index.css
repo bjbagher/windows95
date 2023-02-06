@@ -130,12 +130,35 @@ h1 {
 
 
 .window-container {
-  width: 590px;
-  height: 90%;
   background-color: white;
   margin: 0 auto;
+  width: 97%;
+  height: 90%;
 }
 
+
+@media (max-width: 600px) {
+  .window {
+    width: 290px;
+    left: 5px !important;
+  }
+
+  embed {
+    width: 280px !important;
+    height: 170px !important;
+  }
+
+  .window-outline {
+    width: 290px;
+    height: 200px;
+  }
+
+  .window-container {
+    height: 87%;
+  }
+}
+
+@media (max-height: 850px) {}
 
 .window-title {
   margin-left: 5px;
@@ -282,9 +305,11 @@ img {
 .trash {
   padding-top: 10px;
   padding-left: 10px;
+
   display: flex;
   gap: 50px;
   place-items: center;
+
 }
 
 .trash img {
