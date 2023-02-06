@@ -6,6 +6,18 @@ import Desktop from "./components/Desktop"
 import Window from "./components/Window"
 import NavBar from "./components/NavBar"
 
+
+function Resume() {
+  return (<embed src="ResumeBB.pdf#zoom=FitH" width="590px" height="330px" />)
+}
+function VideoPlayer() {
+  return (
+    <video controls width="590" autoPlay>
+      <source src="rickroll.mp4" type="video/mp4" />
+    </video>
+  )
+}
+
 function App() {
   const { state } = useContext(Context)
   const { iconStt } = useContext(IconContext)
@@ -17,7 +29,25 @@ function App() {
   return (
     <div className="App">
       <Desktop programs={programs}>
-        {open.map((program: any) => <Window key={program.name} top={program.position.top} left={program.position.left} iconSrc={program.iconSrc} name={program.name} selected={program.selected} />)}
+        {open.map((program: any) => {
+          if (program.name === "Internet") {
+            return (
+              <Window key={program.name} top={program.position.top} left={program.position.left} iconSrc={program.iconSrc} name={program.name} selected={program.selected} >
+                <VideoPlayer />
+              </Window>
+            )
+          }
+
+          if (program.name === "about.md") {
+            return (
+              <Window key={program.name} top={program.position.top} left={program.position.left} iconSrc={program.iconSrc} name={program.name} selected={program.selected} >
+                <Resume />
+              </Window>
+            )
+          }
+
+          return (<Window key={program.name} top={program.position.top} left={program.position.left} iconSrc={program.iconSrc} name={program.name} selected={program.selected} />)
+        })}
       </Desktop>
       <NavBar programs={open} />
     </div>
