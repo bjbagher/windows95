@@ -33,6 +33,22 @@ function Trash() {
 }
 
 function App() {
+
+  function isMobile() {
+    if (navigator.userAgent.match(/Android/i)
+      || navigator.userAgent.match(/webOS/i)
+      || navigator.userAgent.match(/iPhone/i)
+      || navigator.userAgent.match(/iPad/i)
+      || navigator.userAgent.match(/iPod/i)
+      || navigator.userAgent.match(/BlackBerry/i)
+      || navigator.userAgent.match(/Windows Phone/i)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  const mobile = isMobile()
+  if (mobile) return <h5>Sorry! Phones not supported, yet!</h5>
   const { state } = useContext(Context)
   const { iconStt } = useContext(IconContext)
   for (const key in iconStt) {
