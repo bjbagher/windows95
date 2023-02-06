@@ -5,9 +5,6 @@ import InfoWindow from "./InfoWindow"
 
 import musicplayer from "../assets/musicplayer.png"
 
-function Resume() {
-  return (<embed src="ResumeBB.pdf#zoom=FitH" width="590px" height="330px" />)
-}
 
 function MusicPlayer() {
   return (

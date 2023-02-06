@@ -51,9 +51,9 @@ export const initState = {
   "about.md": {
     iconSrc: readme,
     name: "about.md",
-    status: Status.CLOSE,
+    status: Status.OPEN,
     position: { top: '140px', left: '180px' },
-    selected: false
+    selected: true
   },
   Info: {
     iconSrc: book_info,
@@ -88,11 +88,9 @@ function reducer(state: any, action: any) {
   let clone
   switch (action.type) {
     case ActionType.DROP:
-      console.log('reducer', action)
       return { ...state, [action.payload.name]: { ...state[action.payload.name], position: { top: action.payload.top, left: action.payload.left } } }
     case ActionType.SELECT:
       clone = structuredClone(state)
-      console.log('hello', action)
       for (const key in clone) {
         clone[key].selected = false
       }
