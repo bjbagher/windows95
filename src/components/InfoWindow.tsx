@@ -20,10 +20,8 @@ function OkButton() {
 interface WindowProps {
   top: string;
   left: string;
-  iconSrc: string;
   name: string;
   selected: boolean;
-  dispatch: any;
 }
 
 function InfoWindow({ top, left, name, selected }: WindowProps) {

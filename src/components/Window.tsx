@@ -33,7 +33,7 @@ function VideoPlayer({ top, left, iconSrc, name, selected }: WindowProps) {
   const { dispatch } = useContext(Context)
   const [listen, setListen] = useState(true)
 
-  const dropAction = (e) => {
+  const dropAction = (e: any) => {
 
     const action = {
       type: ActionType.DROP,
