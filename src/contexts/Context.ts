@@ -71,7 +71,7 @@ export const initState = {
   }
 }
 
-export const Context = createContext(null)
+export const Context = createContext<any>(null)
 
 interface Action<T, P> {
   readonly type: T;
@@ -84,7 +84,7 @@ interface Payload {
   top: string;
 }
 
-function reducer(state: typeof initState, action: Action<string, string | Payload>) {
+function reducer(state: any, action: any) {
   let clone
   switch (action.type) {
     case ActionType.DROP:

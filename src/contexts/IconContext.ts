@@ -25,7 +25,7 @@ export const iconState = {
   }
 }
 
-export const IconContext = createContext(null)
+export const IconContext = createContext<any>(null)
 
 export const IconActionType = {
   SELECT
@@ -37,7 +37,7 @@ interface Action<T, P> {
 }
 
 
-function iconReducer(state: typeof iconState, action: Action<string, string>) {
+function iconReducer(state: any, action: any) {
   switch (action.type) {
     case IconActionType.SELECT:
       const clone = structuredClone(state)

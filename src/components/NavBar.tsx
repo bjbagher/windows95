@@ -34,7 +34,6 @@ function Task({ iconSrc, name }) {
   const { dispatch } = useContext(Context)
 
   const handleSelect = () => {
-    console.log("hello??")
     const action = {
       type: ActionType.SELECT,
       payload: name
@@ -55,7 +54,7 @@ function NavBar({ programs }: NavBarProps) {
   return (
     <div id="nav-bar">
       <Start />
-      {programs.map(program =>
+      {programs.map((program: any) =>
         <Task key={program.name} name={program.name} iconSrc={program.iconSrc} />
       )}
       <Time />

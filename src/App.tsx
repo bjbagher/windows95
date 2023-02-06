@@ -13,11 +13,11 @@ function App() {
     state[key]['icon_selected'] = iconStt[key].selected
   }
   const programs = useMemo(() => Object.values(state), [state])
-  const open = programs.filter(program => program.status === Status.OPEN)
+  const open = programs.filter((program: any) => program.status === Status.OPEN)
   return (
     <div className="App">
       <Desktop programs={programs}>
-        {open.map(program => <Window key={program.name} top={program.position.top} left={program.position.left} iconSrc={program.iconSrc} name={program.name} selected={program.selected} />)}
+        {open.map((program: any) => <Window key={program.name} top={program.position.top} left={program.position.left} iconSrc={program.iconSrc} name={program.name} selected={program.selected} />)}
       </Desktop>
       <NavBar programs={open} />
     </div>

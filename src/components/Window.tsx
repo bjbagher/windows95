@@ -118,7 +118,7 @@ function Window({ top, left, iconSrc, name, selected }: WindowProps) {
   }
   const [listen, setListen] = useState(true)
 
-  const dropAction = (e) => {
+  const dropAction = (e: any) => {
 
     const action = {
       type: ActionType.DROP,
@@ -137,12 +137,12 @@ function Window({ top, left, iconSrc, name, selected }: WindowProps) {
     }
     dispatch(action)
   }
-  const handleDrop = (e) => {
+  const handleDrop = (e: any) => {
     const action = dropAction(e)
     dispatch(action)
   }
 
-  const handleDrag = (e) => {
+  const handleDrag = (e: any) => {
     if (!listen) return
     setListen(false)
     console.log('drag')
