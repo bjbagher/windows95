@@ -8,14 +8,16 @@ import musicplayer from "../assets/musicplayer.png"
 
 function MusicPlayer() {
   return (
-    <div className="musicplayer">
-      <img src={musicplayer} />
-      <audio
-        controls
-        autoPlay
-        src="bigpoppa.mp3">
-      </audio>
-      <CloseButton name="Music" />
+    <div className="music_container">
+      <div className="music_player">
+        <img src={musicplayer} />
+        <audio
+          controls
+          autoPlay
+          src="bigpoppa.mp3">
+        </audio>
+        <CloseButton name="Music" />
+      </div>
     </div>
   )
 }
