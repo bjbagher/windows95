@@ -47,8 +47,6 @@ function App() {
       return false;
     }
   }
-  const mobile = isMobile()
-  if (mobile) return <h5>Sorry! Phones not supported, yet!</h5>
   const { state } = useContext(Context)
   const { iconStt } = useContext(IconContext)
   for (const key in iconStt) {
