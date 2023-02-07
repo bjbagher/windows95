@@ -51,8 +51,6 @@ h1 {
 #nav-bar {
   display: flex;
   place-items: center;
-  position: -webkit-sticky;
-  position: sticky;
   width: 100vw;
   height: 30px;
   background-color: var(--grey);

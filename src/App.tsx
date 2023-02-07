@@ -1,5 +1,4 @@
 import { useMemo, useContext } from 'react'
-import './App.css'
 import { Context, Status } from "./contexts/Context"
 import { IconContext } from "./contexts/IconContext"
 import Desktop from "./components/Desktop"
@@ -15,10 +14,6 @@ import musicplayer from "./assets/musicplayer.png"
 
 import InfoWindow from "./components/InfoWindow"
 
-
-
-
-
 function MusicPlayer() {
   return (
     <div className="music_container">
@@ -26,6 +21,7 @@ function MusicPlayer() {
         <img src={musicplayer} />
         <audio
           controls
+          muted
           autoPlay
           src="bigpoppa.mp3">
         </audio>
@@ -40,7 +36,7 @@ function Resume() {
 }
 function VideoPlayer() {
   return (
-    <video controls width="590" autoPlay>
+    <video controls width="590" muted autoPlay>
       <source src="rickroll.mp4" type="video/mp4" />
     </video>
   )
@@ -58,6 +54,7 @@ function Trash() {
   )
 }
 
+
 function App() {
   const { state } = useContext(Context)
   const { iconStt } = useContext(IconContext)
@@ -70,12 +67,10 @@ function App() {
     <div className="App">
       <Desktop programs={programs}>
         {open.map((program: any) => {
-
           if (program.name === "Info")
             return (
               <InfoWindow top={program.position.top} left={program.position.left} name={program.name} selected={program.selected} />
             )
-
 
           if (program.name === "Music")
             return (<MusicPlayer />)
@@ -115,3 +110,4 @@ function App() {
 
 
 export default App;
+

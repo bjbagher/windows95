@@ -22,17 +22,24 @@ function isMobile() {
   }
 }
 
-
 function Icon({ iconSrc, name, selected }: IconProps) {
   const [clickCount, setClickCount] = useState(0)
   const [timeout, setTO] = useState<number | undefined>(undefined)
   const { dispatch } = useContext(Context)
   const { iconDispatch } = useContext(IconContext)
 
+  function printPDF(url) {
+    let pdfFrame = document.body.appendChild(document.createElement('iframe'));
+    pdfFrame.style.display = 'none';
+    pdfFrame.onload = () => (void pdfFrame.contentWindow.print());
+    pdfFrame.src = url;
+  }
   const handleDoubleClick = () => {
     if (clickCount >= 1) {
       if (name === "Print") {
-        if (!isMobile()) window.print()
+        if (!isMobile()) {
+          printPDF("ResumeBB.pdf")
+        }
         return
       }
       const action = {

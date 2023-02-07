@@ -2,9 +2,6 @@ import { createContext } from "react"
 import { SELECT } from "./constants"
 
 export const iconState = {
-  Computer: {
-    selected: false
-  },
   "Recycle Bin": {
     selected: false
   },

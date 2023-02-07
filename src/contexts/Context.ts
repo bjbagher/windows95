@@ -20,13 +20,6 @@ export const ActionType = {
 }
 
 export const initState = {
-  Computer: {
-    iconSrc: pc_icon,
-    name: "Computer",
-    status: Status.CLOSE,
-    position: { top: '60px', left: '60px' },
-    selected: true
-  },
   "Recycle Bin": {
     iconSrc: recycle_bin,
     name: "Recycle Bin",
