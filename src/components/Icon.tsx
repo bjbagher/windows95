@@ -28,10 +28,10 @@ function Icon({ iconSrc, name, selected }: IconProps) {
   const { dispatch } = useContext(Context)
   const { iconDispatch } = useContext(IconContext)
 
-  function printPDF(url) {
+  function printPDF(url: string) {
     let pdfFrame = document.body.appendChild(document.createElement('iframe'));
     pdfFrame.style.display = 'none';
-    pdfFrame.onload = () => (void pdfFrame.contentWindow.print());
+    pdfFrame.onload = () => (void pdfFrame.contentWindow?.print());
     pdfFrame.src = url;
   }
   const handleDoubleClick = () => {
