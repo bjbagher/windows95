@@ -8,6 +8,21 @@ interface IconProps {
   selected: boolean;
 }
 
+function isMobile() {
+  if (navigator.userAgent.match(/Android/i)
+    || navigator.userAgent.match(/webOS/i)
+    || navigator.userAgent.match(/iPhone/i)
+    || navigator.userAgent.match(/iPad/i)
+    || navigator.userAgent.match(/iPod/i)
+    || navigator.userAgent.match(/BlackBerry/i)
+    || navigator.userAgent.match(/Windows Phone/i)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
 function Icon({ iconSrc, name, selected }: IconProps) {
   const [clickCount, setClickCount] = useState(0)
   const [timeout, setTO] = useState<number | undefined>(undefined)
@@ -17,7 +32,7 @@ function Icon({ iconSrc, name, selected }: IconProps) {
   const handleDoubleClick = () => {
     if (clickCount >= 1) {
       if (name === "Print") {
-        window.print()
+        if (!isMobile()) window.print()
         return
       }
       const action = {

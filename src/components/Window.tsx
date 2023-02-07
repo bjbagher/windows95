@@ -1,26 +1,7 @@
 import { ReactNode, useContext, useState } from "react"
 import { ActionType, Context } from "../contexts/Context"
 import CloseButton from "./CloseButton"
-import InfoWindow from "./InfoWindow"
 
-import musicplayer from "../assets/musicplayer.png"
-
-
-function MusicPlayer() {
-  return (
-    <div className="music_container">
-      <div className="music_player">
-        <img src={musicplayer} />
-        <audio
-          controls
-          autoPlay
-          src="bigpoppa.mp3">
-        </audio>
-        <CloseButton name="Music" />
-      </div>
-    </div>
-  )
-}
 
 interface WindowProps {
   top: string;
@@ -31,14 +12,11 @@ interface WindowProps {
   children?: ReactNode;
 }
 
+
+
 function Window({ top, left, iconSrc, name, selected, children }: WindowProps) {
   const { dispatch } = useContext(Context)
 
-  if (name === "Info")
-    return <InfoWindow name={name} top={top} left={left} selected={selected} />
-
-  if (name === "Music")
-    return (<MusicPlayer />)
 
   const darkGrey = "#817F80"
   const blue = "#010084"

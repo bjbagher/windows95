@@ -9,10 +9,54 @@ import Splash from "./assets/splash.webp"
 import Asurion from "./assets/asurion.webp"
 import Hopes from "./assets/hope.webp"
 import Dreams from "./assets/dreams.webp"
+import CloseButton from "./components/CloseButton"
+import windows_95 from "./assets/windows-95.svg"
+import musicplayer from "./assets/musicplayer.png"
 
+function OkButton() {
+  const { dispatch } = useContext(Context)
+
+  const handleClose = () => {
+    const action = {
+      type: ActionType.CLOSE,
+      payload: "Info"
+    }
+    dispatch(action)
+  }
+
+  return (<button className="ok-button" onClick={handleClose}>OK</button>)
+}
+
+function InfoWindow() {
+  return (<div className="info-container">
+    <p>Windows 95</p>
+    <img src={windows_95} />
+    <p>Copyright&copy; 1981-1995, Microsoft Corp.</p>
+    <OkButton />
+  </div>
+  )
+}
+
+
+
+function MusicPlayer() {
+  return (
+    <div className="music_container">
+      <div className="music_player">
+        <img src={musicplayer} />
+        <audio
+          controls
+          autoPlay
+          src="bigpoppa.mp3">
+        </audio>
+        <CloseButton name="Music" />
+      </div>
+    </div>
+  )
+}
 
 function Resume() {
-  return (<embed src="ResumeBB.pdf#zoom=FitH" />)
+  return (<embed src="ResumeBB.pdf" />)
 }
 function VideoPlayer() {
   return (
@@ -35,21 +79,6 @@ function Trash() {
 }
 
 function App() {
-
-  function isMobile() {
-    if (navigator.userAgent.match(/Android/i)
-      || navigator.userAgent.match(/webOS/i)
-      || navigator.userAgent.match(/iPhone/i)
-      || navigator.userAgent.match(/iPad/i)
-      || navigator.userAgent.match(/iPod/i)
-      || navigator.userAgent.match(/BlackBerry/i)
-      || navigator.userAgent.match(/Windows Phone/i)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   const { state } = useContext(Context)
   const { iconStt } = useContext(IconContext)
   for (const key in iconStt) {
@@ -61,6 +90,18 @@ function App() {
     <div className="App">
       <Desktop programs={programs}>
         {open.map((program: any) => {
+
+          if (program.name === "Info")
+            return (
+              <Window key={program.name} top={program.position.top} left={program.position.left} iconSrc={program.iconSrc} name={program.name} selected={program.selected} >
+                <InfoWindow />
+              </Window>
+            )
+
+
+          if (program.name === "Music")
+            return (<MusicPlayer />)
+
           if (program.name === "Internet") {
             return (
               <Window key={program.name} top={program.position.top} left={program.position.left} iconSrc={program.iconSrc} name={program.name} selected={program.selected} >
