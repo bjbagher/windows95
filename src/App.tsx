@@ -13,29 +13,9 @@ import CloseButton from "./components/CloseButton"
 import windows_95 from "./assets/windows-95.svg"
 import musicplayer from "./assets/musicplayer.png"
 
-function OkButton() {
-  const { dispatch } = useContext(Context)
+import InfoWindow from "./components/InfoWindow"
 
-  const handleClose = () => {
-    const action = {
-      type: ActionType.CLOSE,
-      payload: "Info"
-    }
-    dispatch(action)
-  }
 
-  return (<button className="ok-button" onClick={handleClose}>OK</button>)
-}
-
-function InfoWindow() {
-  return (<div className="info-container">
-    <p>Windows 95</p>
-    <img src={windows_95} />
-    <p>Copyright&copy; 1981-1995, Microsoft Corp.</p>
-    <OkButton />
-  </div>
-  )
-}
 
 
 
@@ -93,9 +73,7 @@ function App() {
 
           if (program.name === "Info")
             return (
-              <Window key={program.name} top={program.position.top} left={program.position.left} iconSrc={program.iconSrc} name={program.name} selected={program.selected} >
-                <InfoWindow />
-              </Window>
+              <InfoWindow top={program.position.top} left={program.position.left} name={program.name} selected={program.selected} />
             )
 
 
