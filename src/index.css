@@ -133,7 +133,7 @@ h1 {
   background-color: white;
   margin: 0 auto;
   width: 97%;
-  height: 90%;
+  height: 88%;
 }
 
 embed {
@@ -149,17 +149,24 @@ embed {
 
   .window-outline {
     width: 290px;
-    height: 200px;
+    height: 220px;
   }
 
   .window-container {
-    height: 87%;
+    height: 190px;
   }
 
   embed {
     width: 285px;
     height: 175px;
     zoom: 100%;
+  }
+
+  .trash {
+    gap: 0px;
+    height: 180px;
+    padding: 0;
+    overflow: scroll;
   }
 }
 
@@ -307,14 +314,24 @@ img {
   background-color: green;
 }
 
-.trash {
-  padding-top: 10px;
-  padding-left: 10px;
-
+.trash ul {
+  margin: 5px;
   display: flex;
+  flex-wrap: wrap;
   gap: 50px;
   place-items: center;
+}
 
+.trash li {
+  margin-top: 30px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.trash il {
+  padding: 0;
+  margin: 0;
 }
 
 .trash img {

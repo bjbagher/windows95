@@ -26,9 +26,11 @@ const trash = [Hopes, Dreams, Splash, Asurion]
 
 function Trash() {
   return (
-    <ul className="trash">
-      {trash.map(item => <li key={item}><div><img src={item} /></div></li>)}
-    </ul>
+    <div className="trash">
+      <ul>
+        {trash.map(item => <li key={item}><div><img src={item} /></div></li>)}
+      </ul>
+    </div>
   )
 }
 
